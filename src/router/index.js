@@ -5,33 +5,18 @@ import ProductDetailView from '@/views/ProductDetailView.vue'
 import CartView from '@/views/CartView.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/category/:slug',
-    name: 'category',
-    component: CategoryView,
-    props: true
-  },
+  { path: '/',                name: 'home',            component: HomeView },
+  { path: '/category/:slug',  name: 'category',        component: CategoryView, props: true },
   {
     path: '/product/:id',
-    name: 'product-detail',
+    name: 'product-detail',    // <— nome da rota
     component: ProductDetailView,
-    props: true
+    props: true               // <— permite passar "id" como prop
   },
-  {
-    path: '/cart',
-    name: 'cart',
-    component: CartView
-  }
+  { path: '/cart',            name: 'cart',            component: CartView }
 ]
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes
 })
-
-export default router

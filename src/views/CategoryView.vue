@@ -28,7 +28,7 @@
           <img
             :src="prod.thumbnail"
             :alt="prod.title"
-            class="w-full h-40 object-cover rounded transition-transform hover:scale-105"
+            class="w-full h-40 object-contain rounded transition-transform hover:scale-105"
           />
         </router-link>
 
@@ -50,27 +50,28 @@
 </template>
 
 <script setup>
-// importações
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import api from '@/services/api.js'
+import axios from 'axios'
 
-// refs e hooks
+// captura o slug da rota
 const route    = useRoute()
 const slug     = ref(route.params.slug || '')
 const products = ref([])
 const loading  = ref(true)
 
-// título legível
+// formata o slug para exibir
 const formattedSlug = computed(() =>
   slug.value.replace(/[-_]/g, ' ')
 )
 
-// função de carregamento
+// busca produtos pela categoria diretamente na API
 async function loadByCategory() {
   loading.value = true
   try {
-    const res = await api.get(`/products/category/${slug.value}?limit=0`)
+    const res = await axios.get(
+      `https://dummyjson.com/products/category/${slug.value}?limit=0`
+    )
     products.value = res.data.products
   } catch (e) {
     console.error('Erro ao carregar categoria:', e)
@@ -80,19 +81,19 @@ async function loadByCategory() {
   }
 }
 
-// recarrega quando a rota mudar
+// reagir a mudanças no parâmetro da rota
 watch(
   () => route.params.slug,
-  (newSlug) => {
+  newSlug => {
     slug.value = newSlug
     loadByCategory()
   }
 )
 
-// monta o componente
+// carregar ao montar
 onMounted(loadByCategory)
 </script>
 
 <style scoped>
-/* Sem estilos extras; TailwindCSS já cobre o layout */
+/* Todo estilo é feito com TailwindCSS */
 </style>

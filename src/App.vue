@@ -1,3 +1,4 @@
+<!-- src/App.vue -->
 <template>
   <NavBar />
   <router-view />
@@ -6,3 +7,7 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
 </script>
+
+<style>
+/* global styles… */
+</style>
