@@ -2,7 +2,7 @@
   <nav class="bg-white shadow fixed top-0 inset-x-0 w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <!-- Logo -->
-      <router-link to="/" class="text-2xl font-bold text-indigo-600">
+      <router-link to="/page/1" class="text-2xl font-bold text-indigo-600">
         NuvemShop
       </router-link>
 
@@ -20,7 +20,7 @@
       <!-- Ícones à direita -->
       <div class="flex-shrink-0 flex items-center space-x-4">
         <!-- Carrinho -->
-        <router-link to="/cart" class="text-gray-700 hover:text332900" aria-label="Carrinho">
+        <router-link to="/cart" class="text-gray-700 hover:text-gray-900" aria-label="Carrinho">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -30,9 +30,9 @@
         </router-link>
 
         <!-- Home -->
-        <router-link to="/" class="text-gray-700 hover:text-gray-900" aria-label="Home">
+        <router-link to="/page/1" class="text-gray-700 hover:text-gray-900" aria-label="Home">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-               viewBox="0 0 24 24" stroke="current2Color" stroke-width="2">
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M3 9.75L12 4l9 5.75v8.5A2.75 2.75 
                      0 0118.25 21h-12A2.75 2.75 0 
@@ -60,7 +60,7 @@
       class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg overflow-y-auto z-40 mt-16"
     >
       <div class="p-4 border-b flex justify-between items-center">
-        <h2 class="font2-bold text-lg">Categorias</h2>
+        <h2 class="font-bold text-lg">Categorias</h2>
         <button @click="open = false" class="text-gray-600 hover:text-gray-900 text-xl">
           &times;
         </button>
@@ -68,7 +68,7 @@
       <ul>
         <li class="px-4 py-3 border-b hover:bg-gray-100">
           <router-link
-            to="/"
+            to="/page/1"
             class="block text-gray-800"
             @click="open = false"
           >
